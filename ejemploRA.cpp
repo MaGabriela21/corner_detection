@@ -4,6 +4,7 @@
  * This software may be freely redistributed under the terms
  * of the X11 license.
  *
+ *September 2016 Maria Gabriela Sandoval Esquivel
  */
 
 //#include <unistd.h>
@@ -179,6 +180,7 @@ void process_file(void)
 				png_byte* row2 = row_pointers[y+1];
 				
                 for (x=1; x<(width-1); x++) {
+					//los 9 vecinos del pixel a escala de grises
                         png_byte* ptr00 = &(row0[(x-1)*4]); ptr00[0]=(ptr00[0]+ptr00[1]+ptr00[2])/3;
 						png_byte* ptr01 = &(row0[x*4]);		ptr01[0]=(ptr01[0]+ptr01[1]+ptr01[2])/3;
 						png_byte* ptr02 = &(row0[(x+1)*4]);	ptr02[0]=(ptr02[0]+ptr02[1]+ptr02[2])/3;
@@ -251,7 +253,7 @@ void process_file(void)
 		}
 }
 
-//void gray_matrix(
+
 
 int main(int argc, char **argv)
 {
